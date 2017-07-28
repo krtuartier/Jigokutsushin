@@ -17,14 +17,14 @@ function weeHours(){
 		document.body.style.color='#FFFFFF';
 		document.body.innerHTML='<video id="vd" controls="controls" autoplay="autoplay"><source src="img/fire.mp4" type="video/mp4"></source></video>';
 		var oVd=document.getElementById('vd');
-//		var handler=setInterval(function(){
-//			if (oVd.ended) {
-//				document.body.removeChild(oVd);
-//				document.body.innerHTML='<div class="margintop"></div><form role="form"><p class="msg">あなたの怨み、晴らします。</p><div class="form_wrap form-group"><input class="txt form-control" type="text"/></div><div class="form_wrap form-group"><input class="btn" type="button" value="送 信" /></div></form>';
-//				document.querySelector('.txt').focus();
-//				clearInterval(handler);
-//			}
-//		},1);
+		var handler=setInterval(function(){
+			if (oVd.ended) {
+				document.body.removeChild(oVd);
+				document.body.innerHTML='<div class="margintop"></div><form role="form"><p class="msg">あなたの怨み、晴らします。</p><div class="form_wrap form-group"><input class="txt form-control" type="text"/></div><div class="form_wrap form-group"><input class="btn" type="button" value="送 信" /></div></form>';
+				document.querySelector('.txt').focus();
+				clearInterval(handler);
+			}
+		},1);
 	} else{
 		document.body.style.backgroundColor='#FFFFFF';
 		document.body.style.color='#000000';
