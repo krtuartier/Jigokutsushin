@@ -15,7 +15,7 @@ function weeHours(){
 	if ((now.getHours()==0&&now.getMinutes()<=10)||url.indexOf('?0')>=0) {
 		document.body.style.backgroundColor='#000000';
 		document.body.style.color='#FFFFFF';
-		document.body.innerHTML='<video id="vd"><source src="img/fire.mp4" type="video/mp4"></source></video>';
+		document.body.innerHTML='<video id="vd" controls="controls"><source src="img/fire.mp4" type="video/mp4"></source></video>';
 		var oVd=document.getElementById('vd');
 		oVd.play();
 		var handler=setInterval(function(){
