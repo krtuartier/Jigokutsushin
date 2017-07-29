@@ -92,12 +92,12 @@ var oWeeHours=null;
 window.onload=function(){
 	RootNodeFont();
 	var oUcb=navigator.appVersion+'';
-	if(oUcb.indexOf('UCBrowser')>-1) {
+	if(oUcb.indexOf('UCBrowser')>-1||oUcb.indexOf('MSIE')>-1) {
 		oWeeHours=new WeeHours();
 	}else{
 		var Op={
 			template:'<img class="op" src="img/fire.gif"/>',
-			created(){
+			created:function(){
 				document.body.style.backgroundColor='#000000';
 				document.body.style.color='#FFFFFF';
 				setTimeout(function(){
@@ -110,7 +110,7 @@ window.onload=function(){
 			'<input v-model="txt" @keyup.enter="submit()" class="txt form-control" type="text"/></p>'+
 			'<p class="form_wrap form-group"><router-link to="/submit" class="btn btn-default">送 信</router-link></p>'+
 			'<router-view @txt-msg="getMsg" :txtval="txt"></router-view></div>',
-			data(){
+			data:function(){
 				return{
 					txt:null,
 					shine:false,
@@ -119,7 +119,7 @@ window.onload=function(){
 				}
 			},
 			methods:{
-				getMsg(msg){
+				getMsg:function(msg){
 					if(msg==0){
 						var _this=this;
 						clearInterval(_this.blink);
@@ -142,11 +142,11 @@ window.onload=function(){
 						},200);
 					}
 				},
-				submit(){
+				submit:function(){
 					router.replace({path:'submit'});
 				}
 			},
-			mounted(){
+			mounted:function(){
 				document.body.style.backgroundColor='#000000';
 				document.body.style.color='#FFFFFF';
 				this.$el.children[1].children[0].focus();
@@ -154,13 +154,13 @@ window.onload=function(){
 		};
 		var Submit={
 			template:'<div v-show="false"></div>',
-			data(){
+			data:function(){
 				return{
 					msg:null
 				}
 			},
 			props:['txtval'],
-			mounted(){
+			mounted:function(){
 				if(this.txtval==''||this.txtval==null){
 					this.msg=0;
 					this.$emit('txt-msg',this.msg);
@@ -173,7 +173,7 @@ window.onload=function(){
 		};
 		var Loading = {
 			template: '<div class="loading"><i class="glyphicon glyphicon-hourglass"></i></div>',
-			mounted(){
+			mounted:function(){
 				document.body.style.backgroundColor='#000000';
 				document.body.style.color='#FFFFFF';
 				setTimeout(function(){
@@ -183,7 +183,7 @@ window.onload=function(){
 		};
 		var Success={
 			template:'<div class="success"><p><i class="glyphicon glyphicon-envelope"></i></p><p>地獄通信</p></div>',
-			mounted(){
+			mounted:function(){
 				document.body.style.backgroundColor='#ff6d81';
 				document.body.style.color='#000000';
 				setTimeout(function(){
@@ -193,21 +193,21 @@ window.onload=function(){
 		};
 		var Receive={
 			template:'<div class="receive"><p>受け取りました</p><p>地獄少女</p></div>',
-			mounted(){
+			mounted:function(){
 				document.body.style.backgroundColor='#ff6d81';
 				document.body.style.color='#000000';
 			}
 		};
 		var Notfound404={
 			template:'<div class="container not_found_404"><h2>Not Found</h2><p>The request URL was not found on this server.<br />hellish world/1.3.33 Server at Jigokutsushin_net Port 80</p></div>',
-			created(){
+			created:function(){
 				var now=new Date();
 				if(window.location.search=='?0'||(now.getHours()==0&&now.getMinutes()<=10)){
 					router.replace({path:'op'});
 				}
 			}
 		};
-		const routes = [
+		var routes = [
 			{
 				path:'/op',
 				component:Op
@@ -243,14 +243,14 @@ window.onload=function(){
 				component:Notfound404
 			}
 		];
-		const router = new VueRouter({
+		var router = new VueRouter({
 			/*mode: 'history',
 			base: __dirname,*/
-			routes
+			routes:routes
 		});
 		new Vue({
 			el: '#box',
-			router
+			router:router
 		});
 	}
 }
