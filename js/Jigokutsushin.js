@@ -9,6 +9,7 @@ function RootNodeFont(){
 		this.html.style.fontSize=this.hWidth/30+"px";
 	}
 }
+Vue.config.keyCodes.enter=13;
 window.onload=function(){
 	RootNodeFont();
 	var Op={
@@ -22,11 +23,66 @@ window.onload=function(){
 		}
 	};
 	var Jigokutsushin={
-		template:'<form role="form"><p class="msg">あなたの怨み、晴らします。</p><div class="form_wrap form-group"><input class="txt form-control" type="text"/></div><div class="form_wrap form-group"><router-link to="/loading" class="btn btn-default">送 信</router-link></router-link></div></form>',
+		template:'<div class="jigokutsushin"><p class="msg">あなたの怨み、晴らします。</p><p class="form_wrap form-group"><input v-model="txt" @keyup.enter="submit()" class="txt form-control" type="text"/></p><p class="form_wrap form-group"><router-link to="/submit" class="btn btn-default">送 信</router-link></router-link></p><router-view @txt-msg="getMsg" :txtval="txt"></router-view></div>',
+		data(){
+			return{
+				txt:null,
+				shine:false,
+				count:null,
+				blink:null
+			}
+		},
+		methods:{
+			getMsg(msg){
+				if(msg==0){
+					var _this=this;
+					clearInterval(_this.blink);
+					this.blink=setInterval(function(){
+						_this.count+=1;
+						if(_this.count<7){
+							if(!_this.shine){
+								_this.$el.children[1].children[0].style.borderColor='#ff6d81';
+								_this.shine=!_this.shine;
+							}else{
+								_this.$el.children[1].children[0].style.borderColor='#66afe9';
+								_this.shine=!_this.shine;
+							}
+						}else{
+							clearInterval(_this.blink);
+							_this.shine=false;
+							_this.count=null;
+							_this.blink=null;
+						}
+					},200);
+				}
+			},
+			submit(){
+				router.replace({path:'submit'});
+			}
+		},
 		mounted(){
 			document.body.style.backgroundColor='#000000';
 			document.body.style.color='#FFFFFF';
 			this.$el.children[1].children[0].focus();
+		}
+	};
+	var Submit={
+		template:'<div v-show="false"></div>',
+		data(){
+			return{
+				msg:null
+			}
+		},
+		props:['txtval'],
+		mounted(){
+			if(this.txtval==''||this.txtval==null){
+				this.msg=0;
+				this.$emit('txt-msg',this.msg);
+				msg=null;
+				router.replace({path:'jigokutsushin'});
+			}else{
+				router.replace({path:'loading'});
+			}
 		}
 	};
 	var Loading = {
@@ -72,7 +128,13 @@ window.onload=function(){
 		},
 		{
 			path:'/jigokutsushin',
-			component:Jigokutsushin
+			component:Jigokutsushin,
+			children:[
+				{
+					path:'/submit',
+					component:Submit
+				}
+			]
 		},
 		{
 			path: '/loading',
@@ -96,8 +158,8 @@ window.onload=function(){
 		}
 	];
 	const router = new VueRouter({
-//		mode: 'history',
-//		base: __dirname,
+		/*mode: 'history',
+		base: __dirname,*/
 		routes
 	});
 	new Vue({

@@ -30,21 +30,21 @@ body * {
   display: block;
   margin: 2rem auto 0;
 }
-#box form {
+#box .jigokutsushin {
   margin-top: 6rem;
   width: 100%;
 }
-#box form .msg {
+#box .jigokutsushin .msg {
   margin: 0 auto;
   width: 13em;
   font-size: 0.9rem;
   margin-bottom: .5em;
 }
-#box form .form_wrap {
+#box .jigokutsushin .form_wrap {
   width: 100%;
   text-align: center;
 }
-#box form .form_wrap .txt {
+#box .jigokutsushin .form_wrap .txt {
   padding: 0;
   display: inline-block;
   width: 9em;
@@ -54,7 +54,7 @@ body * {
   border-radius: 0;
   margin-bottom: .5em;
 }
-#box form .form_wrap .btn {
+#box .jigokutsushin .form_wrap .btn {
   color: #000;
 }
 #box .loading {
