@@ -92,7 +92,7 @@ var oWeeHours=null;
 window.onload=function(){
 	RootNodeFont();
 	var oBox=document.getElementById('box');
-	oBox.innerHTML=navigator.userAgent;
+	oBox.innerHTML=navigator.userAgent+''+navigator.appVersion;
 	return;
 	if(navigator.userAgent.indexOf('UCBrowser') > -1) {
 		oWeeHours=new WeeHours();
