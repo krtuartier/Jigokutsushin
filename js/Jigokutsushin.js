@@ -87,7 +87,7 @@ WeeHours.prototype.toSuccess=function(){
 WeeHours.prototype.toReceive=function(){
 	this.oBox.innerHTML='<div class="receive"><p>受け取りました</p><p>地獄少女</p></div>';
 }
-Vue.config.keyCodes.enter=13;
+//Vue.config.keyCodes.enter=13;
 var oWeeHours=null;
 window.onload=function(){
 	RootNodeFont();
@@ -243,14 +243,14 @@ window.onload=function(){
 				component:Notfound404
 			}
 		];
-		const router = new VueRouter({
-			/*mode: 'history',
-			base: __dirname,*/
-			routes
-		});
-		new Vue({
-			el: '#box',
-			router
-		});
+//		const router = new VueRouter({
+//			/*mode: 'history',
+//			base: __dirname,*/
+//			routes
+//		});
+//		new Vue({
+//			el: '#box',
+//			router
+//		});
 	}
 }
