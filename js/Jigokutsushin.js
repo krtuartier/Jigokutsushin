@@ -92,6 +92,7 @@ var oWeeHours=null;
 window.onload=function(){
 	RootNodeFont();
 	if(navigator.appVersion.indexOf('UCBrowser')>-1) {
+		document.body.style.backgroundColor='#000000';
 		oWeeHours=new WeeHours();
 	}else{
 		var Op={
