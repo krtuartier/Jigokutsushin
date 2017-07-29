@@ -134,7 +134,7 @@ window.onload=function(){
 					path:'/submit',
 					component:Submit
 				}
-			]
+			] 
 		},
 		{
 			path: '/loading',
