@@ -91,10 +91,7 @@ Vue.config.keyCodes.enter=13;
 var oWeeHours=null;
 window.onload=function(){
 	RootNodeFont();
-	var oBox=document.getElementById('box');
-	oBox.innerHTML=navigator.userAgent+''+navigator.appVersion;
-	return;
-	if(navigator.userAgent.indexOf('UCBrowser') > -1) {
+	if(!navigator.userAgent) {
 		oWeeHours=new WeeHours();
 	}else{
 		var Op={
