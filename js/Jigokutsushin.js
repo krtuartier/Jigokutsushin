@@ -18,7 +18,7 @@ function WeeHours(){
 	this.shine=false;
 	this.count=null;
 	this.blink=null;
-	if ((this.now.getHours()==0&&this.now.getMinutes()<=10)||this.url.indexOf('?0')>=0) {
+	if ((this.now.getHours()==0&&this.now.getMinutes()<=10)||this.url.indexOf('?0')>=0||this.url.indexOf('Jigokutsushin0')>=0) {
 		document.body.style.backgroundColor='#000000';
 		document.body.style.color='#FFFFFF';
 		this.toOp();

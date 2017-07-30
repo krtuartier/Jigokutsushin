@@ -31,7 +31,7 @@ body * {
   margin: 2rem auto 0;
 }
 #box .jigokutsushin {
-  margin-top: 6rem;
+  margin-top: 4rem;
   width: 100%;
 }
 #box .jigokutsushin .msg {
@@ -58,14 +58,14 @@ body * {
   color: #000;
 }
 #box .loading {
-  margin-top: 6rem;
+  margin-top: 4rem;
   text-align: center;
   font-size: 2rem;
   transform-origin: center 40%;
   animation: loading 2s infinite linear;
 }
 #box .success {
-  margin-top: 6rem;
+  margin-top: 4rem;
   text-align: center;
   font-size: 2rem;
 }
