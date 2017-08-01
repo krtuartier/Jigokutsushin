@@ -1,14 +1,17 @@
 function RootNodeFont(){
-	if (window.screen.width<=750) {
-		this.html=document.documentElement;
-		this.hWidth=this.html.getBoundingClientRect().width;
-		this.html.style.fontSize=this.hWidth/15+"px";
-	}else{
-		this.html=document.documentElement;
-		this.hWidth=this.html.getBoundingClientRect().width;
-		this.html.style.fontSize=this.hWidth/30+"px";
+	if (nGV.indexOf('MSIE 8.0')<0) {
+		if (window.screen.width<=750) {
+			this.html=document.documentElement;
+			this.hWidth=this.html.getBoundingClientRect().width;
+			this.html.style.fontSize=this.hWidth/15+"px";
+		}else{
+			this.html=document.documentElement;
+			this.hWidth=this.html.getBoundingClientRect().width;
+			this.html.style.fontSize=this.hWidth/30+"px";
+		}
 	}
 }
+var nGV=navigator.appVersion+'';
 function WeeHours(){
 	var _this=this;
 	this.now=new Date();
@@ -18,6 +21,9 @@ function WeeHours(){
 	this.shine=false;
 	this.count=null;
 	this.blink=null;
+	if (nGV.indexOf('MSIE 8.0')>-1) {
+		document.body.style.fontSize='30px';
+	}
 	if ((this.now.getHours()==0&&this.now.getMinutes()<=10)||this.url.indexOf('?0')>=0||this.url.indexOf('Jigokutsushin0')>=0) {
 		document.body.style.backgroundColor='#000000';
 		document.body.style.color='#FFFFFF';
@@ -87,12 +93,13 @@ WeeHours.prototype.toSuccess=function(){
 WeeHours.prototype.toReceive=function(){
 	this.oBox.innerHTML='<div class="receive"><p>受け取りました</p><p>地獄少女</p></div>';
 }
-Vue.config.keyCodes.enter=13;
+if (nGV.indexOf('MSIE 8.0')<0) {
+	Vue.config.keyCodes.enter=13;
+}
 var oWeeHours=null;
 window.onload=function(){
 	RootNodeFont();
-	var oUcb=navigator.appVersion+'';
-	if(oUcb.indexOf('UCBrowser')>-1||oUcb.indexOf('MSIE')>-1) {
+	if(nGV.indexOf('UCBrowser')>-1||nGV.indexOf('MSIE')>-1) {
 		oWeeHours=new WeeHours();
 	}else{
 		var Op={
