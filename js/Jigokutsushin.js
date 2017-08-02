@@ -18,12 +18,14 @@ function WeeHours(){
 	this.url=window.location+'';
 	this.oBox=document.getElementById('box');
 	this.oTxt=null;
+	this.oFire=null;
 	this.shine=false;
 	this.count=null;
 	this.blink=null;
-	if (nGV.indexOf('MSIE 8.0')>-1) {
-		document.body.style.fontSize='30px';
-	}
+	this.oJigokutsushin=null;
+	this.oLoading=null;
+	this.oSuccess=null;
+	this.oReceive=null;
 	if ((this.now.getHours()==0&&this.now.getMinutes()<=10)||this.url.indexOf('?0')>=0||this.url.indexOf('Jigokutsushin0')>=0) {
 		document.body.style.backgroundColor='#000000';
 		document.body.style.color='#FFFFFF';
@@ -48,6 +50,9 @@ WeeHours.prototype.toJigokutsushin=function(){
 	'<input class="txt form-control" type="text"/></p><p class="form_wrap form-group"><a href="javascript:oWeeHours.toSubmit();" class="btn btn-default">送 信</a></p></div>';
 	this.oTxt=this.oBox.querySelector('.txt');
 	this.oTxt.focus();
+	if (nGV.indexOf('MSIE 8.0')>-1) {
+		this.oTxt.style.boxSizing='content-box';
+	}
 }
 WeeHours.prototype.toSubmit=function(){
 	if (this.oTxt.value=='') {
@@ -77,6 +82,11 @@ WeeHours.prototype.toSubmit=function(){
 WeeHours.prototype.toLoading=function(){
 	var _this = this;
 	this.oBox.innerHTML='<div class="loading"><i class="glyphicon glyphicon-hourglass"></i></div>';
+//	if (nGV.indexOf('MSIE 8.0')>-1) {
+//		this.oLoading=this.oBox.querySelector('.loading');
+//		this.oLoading.style.margin='20% auto';
+//		this.oLoading.style.fontSize='80px';
+//	}
 	setTimeout(function(){
 		_this.toSuccess();
 	},6000);
@@ -86,12 +96,22 @@ WeeHours.prototype.toSuccess=function(){
 	this.oBox.innerHTML='<div class="success"><p><i class="glyphicon glyphicon-envelope"></i></p><p>地獄通信</p></div>';
 	document.body.style.backgroundColor='#ff6d81';
 	document.body.style.color='#000000';
+//	if (nGV.indexOf('MSIE 8.0')>-1) {
+//		this.oSuccess=this.oBox.querySelector('.success');
+//		this.oSuccess.style.margin='10% auto';
+//		this.oSuccess.style.fontSize='80px';
+//	}
 	setTimeout(function(){
 		_this.toReceive();
 	},3000);
 }
 WeeHours.prototype.toReceive=function(){
 	this.oBox.innerHTML='<div class="receive"><p>受け取りました</p><p>地獄少女</p></div>';
+//	if (nGV.indexOf('MSIE 8.0')>-1) {
+//		this.oReceive=this.oBox.querySelector('.receive');
+//		this.oReceive.style.margin='10% auto';
+//		this.oReceive.style.fontSize='80px';
+//	}
 }
 if (nGV.indexOf('MSIE 8.0')<0) {
 	Vue.config.keyCodes.enter=13;
