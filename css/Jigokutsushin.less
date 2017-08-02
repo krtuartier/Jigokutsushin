@@ -1,4 +1,44 @@
 @r: 50rem;
+//@media only screen and (min-width: 0) and (max-width: 9999px) {
+//  #box {
+//      .op { 
+//          margin: 100/@r auto \0;
+//      }
+//      .jigokutsushin {
+//          margin: 200/@r auto 0\0;
+//          .msg {
+//              width: 13em\0;
+//              font-size: 45/@r\0;
+//          }
+//          .form_wrap {
+//              .txt { 
+//                  width: 8em \0;
+//                  height: 60/@r \0;
+//                  font-size: 45/@r \0;
+//                  border-width: 5/@r \0;
+//              }
+//          }
+//      }
+//      .loading {
+//          margin-top: 200/@r \0;
+//          font-size: 100/@r \0;
+//      }
+//      .success {
+//          margin-top: 200/@r \0;
+//          font-size: 100/@r \0;
+//      }
+//      .receive {
+//          margin-top: 200/@r \0;
+//          font-size: 80/@r \0;
+//      }
+//      .not_found_404 {
+//          margin-top: 300/@r \0;
+//          p {
+//              font-size: 20/@r \0;
+//          } 
+//      }
+//  }
+//}
 a,
 input,
 button {
@@ -32,23 +72,22 @@ body * {
 }
 
 #box {
-    font-size: 30px \0;
     .op {
-        height: 50%;
+        height: 50%; 
         display: block;
-        margin:10% auto 0 \0;
+        margin: 10% auto 0 \0;
         margin: 100/@r auto 0;
     }
-    .jigokutsushin { 
+    .jigokutsushin {
         margin: 200/@r auto 0;
-        margin:10% auto 0 \0;
+        margin: 10% auto 0 \0;
         width: 100%;
         .msg {
             margin: 0 auto;
-            width: 13em; 
             width: 402px \0;
+            width: 13em;
+            font-size: 33px \0;
             font-size: 45/@r;
-            font-size:33px \0;
             margin-bottom: .5em;
         }
         .form_wrap {
@@ -58,14 +97,14 @@ body * {
                 padding: 0;
                 display: inline-block;
                 box-sizing: content-box \0;
-                width: 8em;
                 width: 305px \0;
-                height: 60/@r;
+                width: 8em;
                 height: 35px \0;
-                font-size: 45/@r;
+                height: 60/@r;
                 font-size: 33px \0;
-                border-width: 5/@r;
+                font-size: 45/@r;
                 border-width: 5px 5px 5px 5px \0;
+                border-width: 5/@r;
                 border-radius: 0;
                 margin-bottom: .5em;
             }
@@ -74,34 +113,34 @@ body * {
             }
         }
     }
-    .loading{
-        margin-top: 200/@r;
+    .loading {
         margin-top: 200px \0;
+        margin-top: 200/@r;
         text-align: center;
-        font-size: 100/@r;
         font-size: 100px \0;
-        transform-origin:center 40%;
+        font-size: 100/@r;
+        transform-origin: center 40%;
         animation: loading 2s infinite linear;
     }
-    .success{
-        margin-top: 200/@r;
+    .success {
         margin-top: 100px \0;
+        margin-top: 200/@r;
         text-align: center;
-        font-size: 100/@r;
         font-size: 100px \0;
-        p{
+        font-size: 100/@r;
+        p {
             font-family: simsun;
             font-weight: bold;
             margin-bottom: .5em;
         }
     }
-    .receive{
-        margin-top: 200/@r;
+    .receive {
         margin-top: 100px \0;
+        margin-top: 200/@r;
         text-align: left;
-        font-size: 80/@r;
         font-size: 80px \0;
-        p{
+        font-size: 80/@r;
+        p {
             padding: 0 1em;
             font-family: simsun;
             font-weight: bold;
@@ -109,31 +148,32 @@ body * {
         }
     }
     .not_found_404 {
-        margin-top: 300/@r;
         margin-top: 300px \0;
+        margin-top: 300/@r;
         p {
             font-family: "times new roman";
-            font-size: 20/@r;
             font-size: 20px \0;
+            font-size: 20/@r;
         }
     }
 }
-@keyframes loading{
-    0%{
+
+@keyframes loading {
+    0% {
         -webkit-transform: rotateZ(0deg);
         -moz-transform: rotateZ(0deg);
         -ms-transform: rotateZ(0deg);
         -o-transform: rotateZ(0deg);
         transform: rotateZ(0deg);
     }
-    50%{
+    50% {
         -webkit-transform: rotateZ(360deg);
         -moz-transform: rotateZ(360deg);
         -ms-transform: rotateZ(360deg);
         -o-transform: rotateZ(360deg);
         transform: rotateZ(360deg);
     }
-    100%{
+    100% {
         -webkit-transform: rotateZ(360deg);
         -moz-transform: rotateZ(360deg);
         -ms-transform: rotateZ(360deg);

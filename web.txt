@@ -1,1 +1,45 @@
 https://krtuartier.github.io/Jigokutsushin/Jigokutsushin.html?0
+
+
+
+
+//@media only screen and (min-width: 0) and (max-width: 9999px) {
+//  #box {
+//      .op { 
+//          margin: 100/@r auto \0;
+//      }
+//      .jigokutsushin {
+//          margin: 200/@r auto 0\0;
+//          .msg {
+//              width: 13em\0;
+//              font-size: 45/@r\0;
+//          }
+//          .form_wrap {
+//              .txt { 
+//                  width: 8em \0;
+//                  height: 60/@r \0;
+//                  font-size: 45/@r \0;
+//                  border-width: 5/@r \0;
+//              }
+//          }
+//      }
+//      .loading {
+//          margin-top: 200/@r \0;
+//          font-size: 100/@r \0;
+//      }
+//      .success {
+//          margin-top: 200/@r \0;
+//          font-size: 100/@r \0;
+//      }
+//      .receive {
+//          margin-top: 200/@r \0;
+//          font-size: 80/@r \0;
+//      }
+//      .not_found_404 {
+//          margin-top: 300/@r \0;
+//          p {
+//              font-size: 20/@r \0;
+//          } 
+//      }
+//  }
+//}

@@ -11,7 +11,6 @@ function RootNodeFont(){
 		}
 	}
 }
-var nGV=navigator.appVersion+'';
 function WeeHours(){
 	var _this=this;
 	this.now=new Date();
@@ -113,6 +112,7 @@ WeeHours.prototype.toReceive=function(){
 //		this.oReceive.style.fontSize='80px';
 //	}
 }
+var nGV=navigator.appVersion+'';
 if (nGV.indexOf('MSIE 8.0')<0) {
 	Vue.config.keyCodes.enter=13;
 }
