@@ -11,16 +11,26 @@ function RootNodeFont(){
 		}
 	}
 }
+function gquery(query,parent){
+	if (parent) {
+		return parent.querySelector(query);
+	} else{
+		return document.querySelector(query);
+	}
+}
 function WeeHours(){
 	var _this=this;
 	this.now=new Date();
 	this.url=window.location+'';
-	this.oBox=document.getElementById('box');
+//	this.oBox=document.getElementById('box');
+	this.oBox=gquery('#box');
 	this.oTxt=null;
 	this.oFire=null;
 	this.shine=false;
 	this.count=null;
 	this.blink=null;
+	this.oOp=null;
+	this.oMsg=null;
 	this.oJigokutsushin=null;
 	this.oLoading=null;
 	this.oSuccess=null;
@@ -43,14 +53,27 @@ WeeHours.prototype.toNotFound=function(){
 }
 WeeHours.prototype.toOp=function(){
 	this.oBox.innerHTML='<img class="op" src="img/fire.gif"/>';
+	if (nGV.indexOf('MSIE 8.0')>-1) {
+		this.oOp=gquery('.op',this.oBox);
+		this.oOp.style.display='block';
+		this.oOp.style.margin='10% auto';
+	}
 }
 WeeHours.prototype.toJigokutsushin=function(){
 	this.oBox.innerHTML='<div class="jigokutsushin"><p class="msg">あなたの怨み、晴らします。</p><p class="form_wrap form-group">'+
 	'<input class="txt form-control" type="text"/></p><p class="form_wrap form-group"><a href="javascript:oWeeHours.toSubmit();" class="btn btn-default">送 信</a></p></div>';
-	this.oTxt=this.oBox.querySelector('.txt');
+	this.oTxt=gquery('.txt',this.oBox);
 	this.oTxt.focus();
 	if (nGV.indexOf('MSIE 8.0')>-1) {
+		this.oBox.style.fontSize='33px';
+		this.oMsg=gquery('.msg',this.oBox);
+		this.oJigokutsushin=gquery('.jigokutsushin',this.oBox);
+		this.oJigokutsushin.style.margin='10% auto';
 		this.oTxt.style.boxSizing='content-box';
+		this.oTxt.style.width='305px';
+		this.oTxt.style.height='35px';
+		this.oTxt.style.fontSize='33px';
+		this.oTxt.style.borderWidth='5px';
 	}
 }
 WeeHours.prototype.toSubmit=function(){
@@ -81,11 +104,11 @@ WeeHours.prototype.toSubmit=function(){
 WeeHours.prototype.toLoading=function(){
 	var _this = this;
 	this.oBox.innerHTML='<div class="loading"><i class="glyphicon glyphicon-hourglass"></i></div>';
-//	if (nGV.indexOf('MSIE 8.0')>-1) {
-//		this.oLoading=this.oBox.querySelector('.loading');
-//		this.oLoading.style.margin='20% auto';
-//		this.oLoading.style.fontSize='80px';
-//	}
+	if (nGV.indexOf('MSIE 8.0')>-1) {
+		this.oLoading=this.oBox.querySelector('.loading');
+		this.oLoading.style.margin='20% auto';
+		this.oLoading.style.fontSize='80px';
+	}
 	setTimeout(function(){
 		_this.toSuccess();
 	},6000);
@@ -95,22 +118,22 @@ WeeHours.prototype.toSuccess=function(){
 	this.oBox.innerHTML='<div class="success"><p><i class="glyphicon glyphicon-envelope"></i></p><p>地獄通信</p></div>';
 	document.body.style.backgroundColor='#ff6d81';
 	document.body.style.color='#000000';
-//	if (nGV.indexOf('MSIE 8.0')>-1) {
-//		this.oSuccess=this.oBox.querySelector('.success');
-//		this.oSuccess.style.margin='10% auto';
-//		this.oSuccess.style.fontSize='80px';
-//	}
+	if (nGV.indexOf('MSIE 8.0')>-1) {
+		this.oSuccess=this.oBox.querySelector('.success');
+		this.oSuccess.style.margin='10% auto';
+		this.oSuccess.style.fontSize='80px';
+	}
 	setTimeout(function(){
 		_this.toReceive();
 	},3000);
 }
 WeeHours.prototype.toReceive=function(){
 	this.oBox.innerHTML='<div class="receive"><p>受け取りました</p><p>地獄少女</p></div>';
-//	if (nGV.indexOf('MSIE 8.0')>-1) {
-//		this.oReceive=this.oBox.querySelector('.receive');
-//		this.oReceive.style.margin='10% auto';
-//		this.oReceive.style.fontSize='80px';
-//	}
+	if (nGV.indexOf('MSIE 8.0')>-1) {
+		this.oReceive=this.oBox.querySelector('.receive');
+		this.oReceive.style.margin='10% auto';
+		this.oReceive.style.fontSize='80px';
+	}
 }
 var nGV=navigator.appVersion+'';
 if (nGV.indexOf('MSIE 8.0')<0) {

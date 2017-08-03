@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>
+	<head id="oHead">
 		<meta charset="UTF-8"/>
 		<meta name="keywords" content="地狱少女,地狱通信"/>
 		<meta name="description" content="地狱少女,地狱通信"/>
@@ -9,18 +9,10 @@
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="css/Jigokutsushin.css"/>
-		<script type="text/javascript">
-			function gquery(query){
-				return document.querySelector(query);
-			}
-			if (navigator.appVersion.indexOf('MSIE 8.0')>-1) {
-				console.log(gquery('#vue2'))
-				document.head.removeChild(gquery('#vue2'));
-				document.head.removeChild(gquery('#vueRouter2'));
-			}
-		</script>
+		<!--[if (gte IE 9)|(!IE)]> -->
 		<script id="vue2" src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
 		<script id="vueRouter2" src="js/vue-router2.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <![endif]-->
 		<script src="js/Jigokutsushin.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>

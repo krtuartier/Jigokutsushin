@@ -25,26 +25,20 @@ body * {
   -webkit-user-select: none;
   font-family: Helvetica;
 }
-#box {
-  font-size: 30px \0;
-}
 #box .op {
   height: 50%;
   display: block;
-  margin: 10% auto 0 \0;
   margin: 2rem auto 0;
 }
 #box .jigokutsushin {
   margin: 4rem auto 0;
-  margin: 10% auto 0 \0;
   width: 100%;
+  text-align: center;
 }
 #box .jigokutsushin .msg {
   margin: 0 auto;
   width: 13em;
-  width: 402px \0;
   font-size: 0.9rem;
-  font-size: 33px \0;
   margin-bottom: .5em;
 }
 #box .jigokutsushin .form_wrap {
@@ -54,15 +48,10 @@ body * {
 #box .jigokutsushin .form_wrap .txt {
   padding: 0;
   display: inline-block;
-  box-sizing: content-box \0;
   width: 8em;
-  width: 305px \0;
   height: 1.2rem;
-  height: 35px \0;
   font-size: 0.9rem;
-  font-size: 33px \0;
   border-width: 0.1rem;
-  border-width: 5px 5px 5px 5px \0;
   border-radius: 0;
   margin-bottom: .5em;
 }
@@ -71,19 +60,15 @@ body * {
 }
 #box .loading {
   margin-top: 4rem;
-  margin-top: 200px \0;
   text-align: center;
   font-size: 2rem;
-  font-size: 100px \0;
   transform-origin: center 40%;
   animation: loading 2s infinite linear;
 }
 #box .success {
   margin-top: 4rem;
-  margin-top: 100px \0;
   text-align: center;
   font-size: 2rem;
-  font-size: 100px \0;
 }
 #box .success p {
   font-family: simsun;
@@ -92,10 +77,8 @@ body * {
 }
 #box .receive {
   margin-top: 4rem;
-  margin-top: 100px \0;
   text-align: left;
   font-size: 1.6rem;
-  font-size: 80px \0;
 }
 #box .receive p {
   padding: 0 1em;
@@ -105,12 +88,10 @@ body * {
 }
 #box .not_found_404 {
   margin-top: 6rem;
-  margin-top: 300px \0;
 }
 #box .not_found_404 p {
   font-family: "times new roman";
   font-size: 0.4rem;
-  font-size: 20px \0;
 }
 @keyframes loading {
   0% {
@@ -135,4 +116,3 @@ body * {
     transform: rotateZ(360deg);
   }
 }
-/*# sourceMappingURL=Jigokutsushin.css.map */
