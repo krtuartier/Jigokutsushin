@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oQqq=document.querySelector('.qqq');
+				var getTestStorage=window.localStorage.getItem('testStorage');
+				if (getTestStorage) {
+					oQqq.innerHTML=getTestStorage;
+				} else{
+					oQqq.innerHTML='fail';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p class="qqq">
+			
+		</p>
+	</body>
+</html>
