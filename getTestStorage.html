@@ -12,7 +12,19 @@
 				} else{
 					oQqq.innerHTML='fail';
 				}
+				
+				var url='https://krtuartier.github.io/helloworld/localStorageTest.html';
+				var frame = document.createElement('iframe');
+		        frame.style.display = 'none';
+		        frame.src = url;
+		        document.body.appendChild(frame);
+				window.frames[0].postMessage('getcolor','https://krtuartier.github.io');
+		
 			}
+		        window.addEventListener('message',function(e){
+		            var color=e.data;
+		            document.getElementById('color').style.backgroundColor=color;
+		        },false);
 		</script>
 	</head>
 	<body>
